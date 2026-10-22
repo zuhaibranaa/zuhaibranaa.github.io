@@ -98,10 +98,16 @@ section{padding:5rem 0}
 .btn-ghost{border-color:var(--line);color:var(--text);background:rgba(255,255,255,.03)}
 .btn:hover .btn-ghost{filter:brightness(1.25)}
 .hero-photo{
-  border-radius:20px;overflow:hidden;border:1px solid var(--line);
-  box-shadow:0 24px 60px rgba(0,0,0,.45);transform:rotate(1.4deg)
+  width:100%;max-width:320px;margin-left:auto;
+  border-radius:18px;overflow:hidden;border:1px solid var(--line);
+  box-shadow:0 24px 60px rgba(0,0,0,.45);background:var(--panel-2)
 }
-.hero-photo img{width:100%;aspect-ratio:1/1;object-fit:cover}
+/* height:auto is required - the width/height attributes on the img element
+   otherwise set a presentational height of 2000px, which overrides the
+   aspect-ratio and blows the photo out of its box. */
+.hero-photo img{
+  width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center;display:block
+}
 
 /* ---------- cards ---------- */
 .grid{display:grid;gap:1.1rem}
@@ -191,7 +197,7 @@ section{padding:5rem 0}
 /* ---------- responsive ---------- */
 @media (max-width:900px){
   .hero-grid{grid-template-columns:1fr}
-  .hero-photo{max-width:260px;transform:none}
+  .hero-photo{max-width:260px;margin-inline:auto}
   .grid-3{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:640px){
@@ -247,7 +253,7 @@ section{padding:5rem 0}
         </div>
       </div>
       <div class="hero-photo">
-        <img src="assets/images/hero.jpg" alt="M. Zohaib Shabbir" width="2000" height="2000">
+        <img src="assets/images/hero.jpg" alt="M. Zohaib Shabbir" width="900" height="900" loading="eager" decoding="async">
       </div>
     </div>
   </div>
